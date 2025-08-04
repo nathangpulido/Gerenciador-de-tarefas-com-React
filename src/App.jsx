@@ -23,14 +23,37 @@ function App() {
         "Revisar a base de algoritmos de ordenação e as principais estrutura de dados e como implementar",
     },
   ]);
+
+  function onTaskClick(taskId) {
+    const newTasks = tasks.map((task) => {
+      //PRECISO ATUALIZAR ESSA TAREFA
+      if (task.id === taskId) {
+        return { ...task, isCompleted: !task.isCompleted };
+      }
+
+      //NÃO PRECISO ATUALIZAR ESSA TAREFA
+      return task;
+    });
+    setTasks(newTasks);
+  }
+
+  function onDeleteTaskClick(taskId) {
+    const newTasks = tasks.filter((task) => task.id !== taskId);
+    setTasks(newTasks);
+  }
+
   return (
     <div className="w-screen h-screen bg-slate-500 flex justify-center p-6">
       <div className="w-[500px]">
         <h1 className="text-3xl text-slate-100 text-center">
           Gerenciador de Tarefas
         </h1>
-        <Tasks tasks={tasks} />
         <AddTask />
+        <Tasks
+          tasks={tasks}
+          onTaskClick={onTaskClick}
+          onDeleteTaskClick={onDeleteTaskClick}
+        />
       </div>
     </div>
   );
