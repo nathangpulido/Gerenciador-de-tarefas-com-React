@@ -12,14 +12,14 @@ function AddTask({ onAddTaskSubmit }) {
         className="border border-slate-300 outline-slate-400 px-4 py-2 rounded-md"
         value={title}
         onChange={(event) => setTitle(event.target.value)}
-      ></input>
+      />
       <input
         type="text"
         placeholder="Digite a descrição da tarefa"
         className="border border-slate-300 outline-slate-400 px-4 py-2 rounded-md"
         value={description}
         onChange={(event) => setDescription(event.target.value)}
-      ></input>
+      />
       <button
         onClick={() => {
           // Verificar se o título e a descrição estão preenchidos
